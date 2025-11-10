@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepo Super App Demo - Your All-in-One Digital Hub</title>
+    <!-- Load Tailwind CSS for modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a clean, modern look */
+        .feature-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom highlight color matching Nepo's green theme */
+        .nepo-green {
+            background-color: #38a169; /* Tailwind green-600 */
+        }
+        .nepo-text-green {
+            color: #38a169;
+        }
+        .icon-size {
+            font-size: 2.5rem;
+        }
+        .like-button:disabled {
+            background-color: #81c784; /* Light green when liked */
+            cursor: not-allowed;
+        }
+    </style>
+    <!-- Load Lucide Icons for clean visuals -->
+    <script type="module" src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-3xl font-bold nepo-text-green">Nepo Super App</span>
+                <span class="text-gray-500 text-sm hidden sm:inline">Your All-in-One Digital Hub for Nepal</span>
+            </div>
+            <nav>
+                <button onclick="showAlert('Demo Complete: Thank you for viewing the MVP structure! Now ready for Q&A.')"
+                    class="bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-medium transition duration-150">
+                    Exit Demo
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Hero Section -->
+        <div class="text-center mb-12 p-8 rounded-xl bg-green-50">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3">
+                <span class="nepo-text-green">Nepo:</span> The Super App Ecosystem of Nepal
+            </h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Discover the 10 core features that connect community, commerce, and essential services, all within a single app.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div id="feature-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            
+            <script>
+                // Define the 10 features with Lucide icons and descriptions
+                const features = [
+                    { title: 'Nepo News', icon: 'Newspaper', description: 'Real-time updates & local news feeds.' },
+                    { title: 'Nepo Calendar', icon: 'Calendar', description: 'Nepali B.S. calendar and local events.' },
+                    { title: 'Nepo Driving', icon: 'Car', description: 'Ride-sharing, GPS, and driver listings.' },
+                    { title: 'Nepo Care', icon: 'HeartHandshake', description: 'Online consultations & caregiver bookings.' },
+                    { title: 'Nepo Second-Hand Market', icon: 'RefreshCcw', description: 'Buy/sell used items like phones, ACs, and beds.' },
+                    { title: 'Nepo Online Shopping', icon: 'ShoppingCart', description: 'E-commerce platform with fast local delivery.' },
+                    { title: 'Nepo Visa Check', icon: 'Globe', description: 'External API integration for visa status updates.' },
+                    { title: 'Nepo Donation', icon: 'PiggyBank', description: 'Secure platform for charitable contributions.' },
+                    { title: 'Nepo Room Rent', icon: 'Home', description: 'Property listings and renter-landlord connection.' },
+                    { title: 'Nepo Part-Time Job', icon: 'Briefcase', description: 'Local job listings and application portal.' },
+                ];
+
+                const grid = document.getElementById('feature-grid');
+                features.forEach(feature => {
+                    const card = document.createElement('div');
+                    card.className = 'feature-card bg-white p-6 rounded-xl border border-gray-200 cursor-pointer flex flex-col items-center text-center';
+                    // The core "Under Construction" demo functionality:
+                    card.setAttribute('onclick', `showAlert('The ${feature.title} feature is currently under development. Please check back later or proceed to the presentation slides!')`);
+                    card.innerHTML = `
+                        <i data-lucide="${feature.icon}" class="icon-size nepo-text-green mb-3"></i>
+                        <h2 class="text-lg font-semibold text-gray-800 mb-2">${feature.title}</h2>
+                        <p class="text-sm text-gray-500">${feature.description}</p>
+                    `;
+                    grid.appendChild(card);
+                });
+            </script>
+        </div>
+
+        <!-- Development Status & Call to Action -->
+        <div class="mt-16 text-center">
+            <div class="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 p-3 rounded-lg font-medium border border-yellow-300">
+                <i data-lucide="Hammer" class="w-5 h-5"></i>
+                <span>Development Status: This Application Is Currently Under Construction (MVP Phase).</span>
+            </div>
+            <p class="mt-6 text-gray-600">
+                To learn more about our vision, technical roadmap, and investment opportunities, please contact us.
+            </p>
+        </div>
+        
+        <!-- Founder Profile Card -->
+        <div id="founder-profile" class="mt-16 max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+            <h2 class="text-3xl font-bold nepo-text-green mb-6 border-b pb-2 text-center">About the Founder</h2>
+            
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                
+                <!-- Photo -->
+                <div class="flex-shrink-0">
+                    <img src="https://placehold.co/150x150/38a169/ffffff?text=Bipin+Hamal" 
+                         alt="Bipin Hamal Founder Photo" 
+                         class="rounded-full w-36 h-36 object-cover border-4 border-green-200 shadow-md">
+                    <!-- NOTE: Replace the placeholder above with your actual photo URL after uploading your image to a public host like Imgur or an equivalent. -->
+                </div>
+
+                <!-- Details -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-gray-900">Bipin Hamal</h3>
+                    <p class="text-lg nepo-text-green mb-4">Visionary & IoT Student</p>
+                    
+                    <p class="text-gray-700 font-semibold">Academic Background:</p>
+                    <ul class="list-none space-y-1 text-gray-600 pl-0">
+                        <li class="flex items-center space-x-2"><i data-lucide="University" class="w-4 h-4 nepo-text-green"></i><span>Baekseok University, South Korea</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="Laptop" class="w-4 h-4 nepo-text-green"></i><span>Major: Internet of Things (IoT)</span></li>
+                    </ul>
+
+                    <p class="text-gray-700 font-semibold mt-4">Contact:</p>
+                    <ul class="list-none space-y-1 text-gray-600 pl-0">
+                        <li class="flex items-center space-x-2"><i data-lucide="Mail" class="w-4 h-4 nepo-text-green"></i><a href="mailto:bipinhamal2025@gmail.com" class="hover:underline">bipinhamal2025@gmail.com</a></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="Phone" class="w-4 h-4 nepo-text-green"></i><a href="tel:+821067083312" class="hover:underline">+82 10-6708-3312</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Section (Likes and Comments) -->
+        <div class="mt-16 max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+            <h2 class="text-3xl font-bold nepo-text-green mb-6 border-b pb-2">Public Feedback Wall</h2>
+
+            <!-- Like Button -->
+            <div class="flex items-center space-x-4 mb-8">
+                <button id="like-button" onclick="handleLike()" 
+                    class="like-button bg-red-500 text-white font-bold py-3 px-6 rounded-full flex items-center space-x-2 shadow-lg hover:bg-red-600 transition">
+                    <i data-lucide="Heart" class="w-6 h-6 fill-white"></i>
+                    <span id="like-text">Like This Project</span>
+                </button>
+                <span id="like-count" class="text-xl font-semibold text-gray-700">0 Likes</span>
+            </div>
+
+            <!-- Comment Input -->
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Leave a Comment</h3>
+            <div class="space-y-4">
+                <input type="text" id="comment-name" placeholder="Your Name (Optional)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500">
+                <textarea id="comment-text" placeholder="Your feedback or thoughts..." rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"></textarea>
+                <button onclick="postComment()" class="nepo-green text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition">
+                    Post Feedback
+                </button>
+            </div>
+
+            <!-- Comment Display Area -->
+            <h3 class="text-xl font-semibold text-gray-800 mt-10 mb-4 border-t pt-4">Recent Comments</h3>
+            <div id="comments-container" class="space-y-4">
+                <!-- Comments will be displayed here by JavaScript -->
+                <p id="no-comments" class="text-gray-500 italic">Be the first to leave a comment!</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-10">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <p class="text-sm">&copy; 2025 Nepo Super App. All rights reserved.</p>
+            <div class="mt-4 sm:mt-0 space-x-4 text-sm">
+                <p>Presented by: Bipin Hamal (IoT Student)</p>
+                <!-- Clickable Contact Links -->
+                <a href="mailto:bipinhamal2025@gmail.com" class="hover:text-green-300 transition" aria-label="Email Bipin Hamal">Email</a>
+                <a href="tel:+821067083312" class="hover:text-green-300 transition" aria-label="Call Bipin Hamal">Phone</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Alert Component HTML -->
+    <div id="custom-alert" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full">
+            <h3 class="text-xl font-bold mb-3 nepo-text-green">Demo Message</h3>
+            <p id="alert-message" class="text-gray-700 mb-6"></p>
+            <button onclick="document.getElementById('custom-alert').classList.add('hidden')"
+                class="w-full nepo-green text-white py-2 rounded-lg hover:bg-green-700 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // --- Custom Alert Function ---
+        function showAlert(message) {
+            document.getElementById('alert-message').textContent = message;
+            document.getElementById('custom-alert').classList.remove('hidden');
+        }
+
+        // --- Interaction Logic (Likes and Comments) ---
+        
+        const LIKE_KEY = 'nepoDemoLikes';
+        const COMMENTS_KEY = 'nepoDemoComments';
+        const LIKED_KEY = 'nepoDemoLiked';
+
+        // Loads initial state on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadInteractionState();
+        });
+
+        function loadInteractionState() {
+            // Load Likes
+            const currentLikes = parseInt(localStorage.getItem(LIKE_KEY) || '0', 10);
+            document.getElementById('like-count').textContent = `${currentLikes} Likes`;
+            
+            // Check if user has liked
+            const hasLiked = localStorage.getItem(LIKED_KEY) === 'true';
+            const likeButton = document.getElementById('like-button');
+            if (hasLiked) {
+                likeButton.disabled = true;
+                document.getElementById('like-text').textContent = 'Project Liked!';
+            }
+
+            // Load Comments
+            displayComments();
+        }
+
+        function handleLike() {
+            const likeButton = document.getElementById('like-button');
+            if (likeButton.disabled) return;
+
+            // 1. Update count
+            let currentLikes = parseInt(localStorage.getItem(LIKE_KEY) || '0', 10);
+            currentLikes += 1;
+            
+            // 2. Save state
+            localStorage.setItem(LIKE_KEY, currentLikes);
+            localStorage.setItem(LIKED_KEY, 'true');
+            
+            // 3. Update UI
+            document.getElementById('like-count').textContent = `${currentLikes} Likes`;
+            document.getElementById('like-text').textContent = 'Project Liked!';
+            likeButton.disabled = true;
+            
+            // 4. Show success message (optional)
+            showAlert("Thank you for liking the project! Your feedback is encouraging.");
+        }
+
+        function postComment() {
+            const nameInput = document.getElementById('comment-name');
+            const textInput = document.getElementById('comment-text');
+            const commentText = textInput.value.trim();
+            let commentName = nameInput.value.trim();
+
+            if (!commentText) {
+                showAlert("Please write your feedback before posting!");
+                return;
+            }
+            
+            if (!commentName) {
+                commentName = 'Anonymous Visitor';
+            }
+
+            const newComment = {
+                name: commentName,
+                text: textInput.value.substring(0, 300), // Truncate long comments
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Retrieve existing comments or start a new array
+            let comments = JSON.parse(localStorage.getItem(COMMENTS_KEY) || '[]');
+            comments.unshift(newComment); // Add new comment to the top
+            
+            // Save back to local storage
+            localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+
+            // Clear inputs and update display
+            nameInput.value = '';
+            textInput.value = '';
+            displayComments();
+            showAlert("Your feedback has been successfully posted!");
+        }
+
+        function displayComments() {
+            const container = document.getElementById('comments-container');
+            let comments = JSON.parse(localStorage.getItem(COMMENTS_KEY) || '[]');
+            container.innerHTML = ''; // Clear existing comments
+
+            if (comments.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 italic">Be the first to leave a comment!</p>';
+                return;
+            }
+
+            comments.forEach(comment => {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'border-b border-gray-100 pb-3 mb-3';
+                commentDiv.innerHTML = `
+                    <p class="font-semibold text-gray-800">${comment.name}</p>
+                    <p class="text-gray-700 mt-1">${comment.text}</p>
+                    <p class="text-xs text-gray-400 mt-1">${comment.timestamp}</p>
+                `;
+                container.appendChild(commentDiv);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
